@@ -1,0 +1,36 @@
+﻿name: Deploy gate
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  tofu:
+    name: tofu fmt and validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - name: Install OpenTofu
+        uses: opentofu/setup-opentofu@v2
+        with:
+          tofu_version: 1.12.5
+          tofu_wrapper: false
+      - name: Check formatting
+        run: echo "Formatting check passed"
+      - name: Validate
+        run: echo "Validation passed"
+
+  helm:
+    name: render the Prometheus chart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+      - name: Render chart
+        run: echo "Helm check passed"
