@@ -1,0 +1,10 @@
+id,area,control,test,expected,status,evidence
+C-01,Repo,No committed secrets in git history,Run gitleaks git --redact across repo history,0 findings,Pass,capstone/cybersecurity-governance/evidence/week-11-kickoff/gitleaks-report.json
+C-02,Repo,Tool versions and dependencies are pinned and recorded,Check TOOL-VERSIONS.txt and requirements.txt exist,All tools and Python packages recorded,Pass,capstone/cybersecurity-governance/TOOL-VERSIONS.txt
+C-03,Kubernetes workload,Database and exporter workloads are healthy in cluster,Check pods in default namespace via env checkpoint,Running pods without crash loops,Pass,capstone/cybersecurity-governance/evidence/week-11-kickoff/env-checkpoint.txt
+C-04,Kubernetes workload,Web workload is deployed and healthy on k3s,Check web pod/service and /health endpoint,web service and /health endpoint available,Fail,capstone/cybersecurity-governance/evidence/week-11-kickoff/env-checkpoint.txt
+C-05,Network,Database access is restricted via NetworkPolicy,Check kubectl get networkpolicy for db-clients,db-clients policy present on app=db,Pass,capstone/cybersecurity-governance/evidence/week-11-kickoff/env-checkpoint.txt
+C-06,Network,Default-deny policy is enforced in default namespace,Check network policies for default-deny rule,Default-deny policy exists,Fail,capstone/cybersecurity-governance/evidence/week-11-kickoff/env-checkpoint.txt
+C-07,RBAC,Workload uses dedicated non-default ServiceAccount,Inspect ServiceAccounts used by app workloads,Dedicated ServiceAccount in use,Fail,capstone/cybersecurity-governance/evidence/week-11-kickoff/env-checkpoint.txt
+C-08,Image,OpenTofu and Kubernetes manifests pass static security checks,Run checkov and trivy config on week-5 and kube-score on live YAML,Zero high/critical misconfigurations,Fail,capstone/cybersecurity-governance/evidence/week-11-kickoff/checkov-week5.txt
+C-09,Process,Changes are merged via PRs with branch protection active,Check GitHub rulesets via gh api,Active ruleset protecting main/master,Pass,capstone/cybersecurity-governance/evidence/week-11-kickoff/env-checkpoint.txt

@@ -1,0 +1,27 @@
+=== Date & Context ===
+Sat Nov 21 15:10:45 CST 2026
+default
+=== Nodes ===
+NAME             STATUS   ROLES           AGE   VERSION
+cedricpcgaming   Ready    control-plane   12d   v1.37.2+k3s1
+=== Pods (default) ===
+NAME                           READY   STATUS    RESTARTS     AGE
+db-7ccf6547b4-8466v            1/1     Running   1 (8d ago)   8d
+db-exporter-79c48f9f55-8mrhr   1/1     Running   1 (8d ago)   8d
+=== Pods (monitoring) ===
+=== NetworkPolicies ===
+NAME         POD-SELECTOR   AGE
+db-clients   app=db         8d
+=== Default ServiceAccount ===
+NAME      AGE
+default   12d
+=== Web Service Health ===
+
+=== GitHub Rulesets ===
+=== GitHub Auth & Rulesets ===
+github.com
+  ✓ Logged in to github.com account CedBan (/home/cedri/.config/gh/hosts.yml)
+  - Active account: true
+  - Git operations protocol: https
+  - Token: gho_************************************
+  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
